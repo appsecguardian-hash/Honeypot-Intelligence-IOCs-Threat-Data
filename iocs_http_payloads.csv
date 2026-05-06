@@ -1,0 +1,26 @@
+method,path,campaign,cve,severity,payload_type,signature,notes
+POST,/app,Next.js RCE,CVE-2025-29927 variant,CRITICAL,Prototype Pollution,Header: Next-Action: x AND Body: __proto__:then,React Flight deserialization to Function constructor
+POST,/api,Next.js RCE,CVE-2025-29927 variant,CRITICAL,Prototype Pollution,Header: Next-Action: x AND Body: constructor:constructor,Spray pattern - tries multiple paths
+POST,/_next,Next.js RCE,CVE-2025-29927 variant,CRITICAL,Prototype Pollution,Header: X-Nextjs-Request-Id: poop1234,Scanner fingerprint
+POST,/_next/server,Next.js RCE,CVE-2025-29927 variant,CRITICAL,Prototype Pollution,Body: NEXT_REDIRECT,RCE confirmation via redirect
+POST,/,Next.js RCE,CVE-2025-29927 variant,CRITICAL,Prototype Pollution,Body: _prefix.*throw Object.assign,Code execution payload
+POST,/api/route,Next.js RCE,CVE-2025-29927 variant,CRITICAL,Prototype Pollution,Body: resolved_model,Flight protocol abuse
+POST,/cgi-bin/%%32%65%%32%65/bin/sh,Apache Worm,CVE-2021-41773,CRITICAL,Path Traversal RCE,Body: 125.135.169.171/sh,Double-percent encoded dots
+POST,/cgi-bin/.%2e/.%2e/.%2e/bin/sh,Apache Worm,CVE-2021-42013,CRITICAL,Path Traversal RCE,Body: apache.selfrep,Single-percent encoded dots
+GET,/.env,Credential Harvesting,N/A,MEDIUM,Info Disclosure,200 response = exposed,Environment file with secrets
+GET,/.env.local,Credential Harvesting,N/A,MEDIUM,Info Disclosure,200 response = exposed,Local environment override
+GET,/.env.production,Credential Harvesting,N/A,MEDIUM,Info Disclosure,200 response = exposed,Production secrets
+GET,/.env.backup,Credential Harvesting,N/A,MEDIUM,Info Disclosure,200 response = exposed,Backup with credentials
+GET,/.git/config,Credential Harvesting,N/A,MEDIUM,Info Disclosure,Contains [remote origin],Git config with potential tokens
+GET,/.git/HEAD,Credential Harvesting,N/A,LOW,Info Disclosure,ref: refs/heads/,Git repository detection
+GET,/wp-login.php,WordPress Exploitation,N/A,LOW,Recon,Standard WP fingerprint,WordPress detection
+GET,/wp-admin/alfa.php,WordPress Exploitation,N/A,HIGH,Webshell Check,Alfa Shell presence,Known PHP webshell
+GET,/wp-content/plugins/WordPressCore/,WordPress Exploitation,N/A,HIGH,Backdoor Check,Fake plugin directory,Common backdoor plugin name
+GET,/wp-content/plugins/hellopress/wp_filemanager.php,WordPress Exploitation,N/A,HIGH,File Manager RCE,Unauth file upload,Known vulnerable plugin
+GET,/xmlrpc.php,WordPress Exploitation,N/A,MEDIUM,Brute-Force/DDoS,XML-RPC interface,Credential stuffing + pingback DDoS
+GET,/backend/web/debug/default/view?panel=config,Yii2 Debug Panel,N/A,HIGH,Info Disclosure,Config panel dump,Database creds + env vars exposed
+GET,/admin/debug/default/view?panel=config,Yii2 Debug Panel,N/A,HIGH,Info Disclosure,Framework debug toolbar,Session data + credentials
+GET,/frontend/web/debug/default/view,Yii2 Debug Panel,N/A,HIGH,Info Disclosure,Yii2 debug module,Full application introspection
+GET,/debug/default/view?panel=config,Yii2 Debug Panel,N/A,HIGH,Info Disclosure,Direct debug mount,Shortest path variant
+GET,/geoserver/ows?service=WFS&version=2.0.0&request=GetPropertyValue,GeoServer RCE,CVE-2024-36401,CRITICAL,Java RCE,valueReference=Runtime.getRuntime,OGC filter XPath injection
+GET,/geoserver/web/,GeoServer RCE,CVE-2024-36401,LOW,Recon,Admin panel detection,GeoServer fingerprint

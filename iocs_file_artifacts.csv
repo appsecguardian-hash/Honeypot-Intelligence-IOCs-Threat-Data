@@ -1,0 +1,8 @@
+path,type,campaign,description,detection_method,risk
+~/.ssh/authorized_keys,Persistence,Solana Validator Brute-Force,Planted SSH key with chattr +ai immutable flag,Check for rsa-key-20230629 fingerprint + check file attributes with lsattr,HIGH
+./.7091691730142736491/sshd,Backdoor,Solana Validator Brute-Force,Fake sshd in hidden numeric directory - reverse shell or miner,find / -name sshd -not -path /usr/sbin/sshd,CRITICAL
+clean.sh,Dropper,Solana Validator Brute-Force,Self-deleting deployment script,Process monitoring - runs then deletes itself,MEDIUM
+setup.sh,Dropper,Solana Validator Brute-Force,Self-deleting setup script for persistence,Process monitoring - runs then deletes itself,MEDIUM
+~/.local/share/TelegramDesktop/tdata/,Exfiltration Target,Solana Validator Brute-Force,Telegram session data - stolen for 2FA bypass,Monitor access to tdata directory from non-Telegram processes,HIGH
+/var/spool/sms/*,Exfiltration Target,Solana Validator Brute-Force,SMS spool - OTP interception,Monitor access from unauthorized processes,HIGH
+/etc/smsd.conf,Exfiltration Target,Solana Validator Brute-Force,SMS daemon config - modem access,File read monitoring,MEDIUM

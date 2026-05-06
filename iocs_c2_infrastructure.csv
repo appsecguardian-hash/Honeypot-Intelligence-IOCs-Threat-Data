@@ -1,0 +1,4 @@
+ip,port,protocol,domain,country,asn,provider,campaign,payload_url,payload_name,status,first_seen,last_seen,notes
+125.135.169.171,443,HTTPS,,KR,Korea Telecom,Korea Telecom,Apache Self-Replicating Worm,https://125.135.169.171/sh,apache.selfrep,ACTIVE,2026-05-04T00:22:00Z,2026-05-06T04:41:00Z,Centralized C2 - all 12 botnet nodes fetch from here. Single point of failure. Report to KR-CERT.
+87.121.84.16,80,HTTP,,BG,Unknown,Unknown,Next.js Prototype Pollution RCE,N/A,N/A,ACTIVE,2026-05-04T21:33:00Z,2026-05-05T03:12:00Z,Scanner origin - not a C2 but operational infrastructure. Weaponized CVE-2025-29927 variant.
+20.29.106.102,80,HTTP,kibana.dev.planair.nl,US,Microsoft,Azure,WordPress Exploitation,N/A,N/A,ACTIVE,2026-05-04T02:29:00Z,2026-05-04T08:00:00Z,Azure VPS running automated WP scanner. Targets specific Dutch org via Host header.
